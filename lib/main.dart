@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:new_flutter/screens/home_page.dart';
+import 'screens/text_field.dart';
 
-void main() {
+void main(){
   runApp(const MyApp());
 }
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: TextField2(),
     );
   }
 }

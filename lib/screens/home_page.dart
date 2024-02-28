@@ -22,9 +22,7 @@ class HomePage extends StatelessWidget {
                 ),
                 action: SnackBarAction(
                   label: 'Cancel',
-                  onPressed: () {
-                    print("Di cancel yak!");
-                  },
+                  onPressed: () {},
                   textColor: Colors.redAccent,
                 ),
                 backgroundColor: Colors.greenAccent,
