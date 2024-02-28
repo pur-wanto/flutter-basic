@@ -4,52 +4,47 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  int nilai = 0;
+class HomePage extends StatelessWidget {
+  const HomePage({
+    super.key,
+  });
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Increment Apps'),
-          backgroundColor: Colors.blueAccent,
-          centerTitle: true,
-        ),
-        body: Center(
-            child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    nilai--;
-                  });
-                  print('$nilai');
-                },
-                child: const Icon(Icons.remove)),
-            Text(
-              '$nilai',
-              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    nilai++;
-                  });
-                  print('$nilai');
-                },
-                child: const Icon(Icons.add)),
-          ],
-        )),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.amberAccent,
+        title: const Text('Dialog'),
       ),
+      body: Center(
+          child: ElevatedButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          title: const Text('Hello World'),
+                          content: const Text('Ini adalah deskripsinya'),
+                          actions: [
+                            ElevatedButton(
+                                onPressed: () {}, child: const Text('Cancel')),
+                            ElevatedButton(
+                                onPressed: () {}, child: const Text('Ok!')),
+                          ],
+                        ));
+              },
+              child: const Text('Dialog'))),
     );
   }
 }
